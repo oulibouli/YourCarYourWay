@@ -1,0 +1,130 @@
+/* Main container for chat bubbles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  overflow-y: auto; /* Vertical scrollbar */
+  padding: 10px;
+  background-color: #f0f0f0; /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  gap: 8px; /* Space between messages */
+}
+
+/* Custom scrollbar */
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: #7B61FF; /* Purple color for the scrollbar */
+  border-radius: 10px;
+}
+
+/* Bubble for sent messages */
+.sent-message {
+  align-self: flex-end;
+  background-color: #6196ff; /* Purple color */
+  color: white; /* White text */
+  padding: 10px 15px;
+  border-radius: 15px 15px 0 15px; /* Rounded corners */
+  max-width: 70%;
+  margin: 5px 10px; /* Spacing around bubbles */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  word-wrap: break-word; /* Handles long words */
+  font-size: 14px; /* Font size */
+  line-height: 1.4; /* Comfortable line height */
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Bubble for received messages */
+.received-message {
+  align-self: flex-start;
+  background-color: #81ea90; /* Light background */
+  color: #333; /* Black text */
+  padding: 10px 15px;
+  border-radius: 15px 15px 15px 0; /* Rounded corners */
+  max-width: 70%;
+  margin: 5px 10px; /* Spacing around bubbles */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  word-wrap: break-word; /* Handles long words */
+  font-size: 14px; /* Font size */
+  line-height: 1.4; /* Comfortable line height */
+}
+
+/* Animation for message appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input area for comments */
+.comment-input {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  margin-inline: 3%;
+}
+
+/* Input fields with fluid spacing */
+.comment-input mat-form-field {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.comment-input mat-form-field textarea {
+  height: 100px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Send button */
+.comment-input button.mat-icon-button {
+  width: 56px;
+  height: 56px;
+  background-color: white; /* White background */
+  border-radius: 50%; /* Circular button */
+}
+
+/* Icon inside the send button */
+.comment-input mat-icon {
+  font-size: 28px;
+  color: #7B61FF; /* Purple color */
+}
+
+/* Container for the message content */
+.comment-content {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/* Spacing between the username and the message */
+.username {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  font-size: 0.9em;
+  color: gray;
+  margin: 10px 0;
+}
+
+/* Icon for users */
+.comment-content mat-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #7B61FF;
+}

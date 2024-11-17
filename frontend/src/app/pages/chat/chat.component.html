@@ -1,0 +1,26 @@
+<div class="chat-container-wrapper">
+    <h2>Connecté au chat en tant que {{ sender }}</h2>
+    <!-- Messages Input Zone -->
+    <div class="comment-input">
+      <mat-form-field appearance="outline" class="custom-infix-padding">
+        <textarea #messageInput matInput [(ngModel)]="message" (keydown.enter)="send();false" placeholder="Tapez votre message ici..."></textarea>
+      </mat-form-field>
+      <button mat-icon-button color="primary" (click)="send()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  
+    <!-- Messages container -->
+    <div class="chat-container">
+      <div
+        *ngFor="let message of received"
+        [ngClass]="{
+            'sent-message': message.sender === sender,
+            'received-message': message.sender !== sender
+        }"
+      >
+        <span class="username">{{ message.sender }}</span>
+        <span class="comment-text">{{ message.content }}</span>
+      </div>
+    </div>
+  </div>
