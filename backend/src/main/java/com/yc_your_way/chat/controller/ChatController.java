@@ -13,7 +13,6 @@ public class ChatController {
     @MessageMapping("/chat/{roomId}")
     @SendTo("/topic/{roomId}")
     public Message handleMessage(@DestinationVariable String roomId, Message message) {
-        System.out.println(message.getContent());
         return message;
     }
 }
