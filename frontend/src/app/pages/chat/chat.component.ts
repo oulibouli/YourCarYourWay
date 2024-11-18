@@ -13,6 +13,8 @@ export class ChatComponent implements OnInit {
   sender!: string;
   bodyMessage!: BodyMessage;
   received: BodyMessage[] = [];
+
+  // Access the message input field for focus on
   @ViewChild('messageInput') messageInput!: ElementRef;
 
   constructor(
@@ -21,6 +23,7 @@ export class ChatComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Retrieve the sender name from the URL parameter
     this.sender = this.route.snapshot.params['user'];
     // Subscribe to the messages Observable
     this.chatService.getMessages().subscribe((message) => {
@@ -34,6 +37,7 @@ export class ChatComponent implements OnInit {
     })
   }
 
+  // Send a message and clear the input field
   send() {
     this.bodyMessage = {
       content: this.message,

@@ -9,12 +9,15 @@ import * as SockJS from 'sockjs-client';
 })
 export class ChatService {
   private client: Client;
+  private wsEndpoint: string = 'http://localhost:8080/chat-websocket'
   private destination: string = '/app/chat/Room1';
   private url: string = '/topic/Room1';
   private messageSubject: Subject<string> = new Subject<string>();
+
   constructor() {
+    // Initialize STOMP client with WebSocket endpoint
     this.client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8080/chat-websocket')
+      webSocketFactory: () => new SockJS(this.wsEndpoint)
     });
 
     // Connecting the STOMP Client
@@ -27,11 +30,12 @@ export class ChatService {
     this.client.activate();
   }
 
-  //Return an Observable
+  // Return an Observable for received messages
   getMessages(): Observable<string> {
     return this.messageSubject.asObservable();
   }
 
+  // Send a chat message to a specific destination
   sendMessage(bodyMessage: BodyMessage): void {
     const destination = this.destination
     this.client.publish({ destination, body: JSON.stringify(bodyMessage) })
