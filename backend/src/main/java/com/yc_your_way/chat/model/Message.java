@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Message {
     @JsonProperty("sender")
-    private String sender;
+    private String sender; // The sender of the message.
     @JsonProperty("content")
-    private String content;
+    private String content; // The content of the message
 }

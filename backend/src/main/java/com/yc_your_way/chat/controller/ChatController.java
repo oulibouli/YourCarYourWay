@@ -13,6 +13,7 @@ public class ChatController {
     @MessageMapping("/chat/{roomId}")
     @SendTo("/topic/{roomId}")
     public Message handleMessage(@DestinationVariable String roomId, Message message) {
+        // Return the message to be broadcasted to all clients subscribed to the topic
         return message;
     }
 }
