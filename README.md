@@ -27,8 +27,8 @@ Before getting started, ensure you have the following installed:
 Clone these repositories :
 > git clone https://github.com/oulibouli/YourCarYourWay.git
 
-### SQL setup
-Run the SQL script in the backend's resource folder
+### SQL script
+SQL script available in the backend's resource folder
 
 ### Configure the Application
 ### Install Dependencies
